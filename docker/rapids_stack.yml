@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  rapids-notebooks:
+    image: nvcr.io/nvidia/rapidsai/notebooks:25.08-cuda12.9-py3.13
+    container_name: rapids-notebooks-container
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    shm_size: 1g
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    environment:
+      - PUID=1001
+      - PGID=1001
+    ports:
+      - "8888:8888"  # Jupyter notebook
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - filestorage:/home/rapids/workspace
+      # Optional: Add more volumes for notebooks
+      # - rapids_notebooks:/opt/conda/envs/rapids/notebooks
+    
+    # Optional: Set environment variables
+    # environment:
+    #   - JUPYTER_ENABLE_LAB=yes
+
+volumes:
+  filestorage:
+    external: true
+  # Optional: Create additional volumes if needed
+  # rapids_notebooks:
+  #   driver: local
