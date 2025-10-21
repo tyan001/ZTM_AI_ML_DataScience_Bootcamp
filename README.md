@@ -26,3 +26,5 @@ This repository uses Docker for consistent development environments. See the `do
 
 These are personal study notes and may contain my own interpretations and summaries of the course materials. They are intended for learning purposes and personal reference.
 
+Some text were taken from course materials jupyter notebooks that can be found at:
+[ztm-ml Course GitHub Link](https://github.com/mrdbourke/zero-to-mastery-ml)
