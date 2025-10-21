@@ -49,4 +49,39 @@ Below are some of the most important evaluation metrics you'll want to look into
 
 ## 📉 Regression Model Evaluation Metrics/Techniques
 
-**📊 R² (R-squared)** or the coefficient of determination - Compares your model's predictions to the mean of the targets. Values can range from negative infinity (a very poor model) to 1. For example, if all your model does is predict the mean of the targets, its R² value would be 0. And if your model perfectly predicts a range of numbers it's R² va
+**📊 R² (R-squared)** or the coefficient of determination - Compares your model's predictions to the mean of the targets. Values can range from negative infinity (a very poor model) to 1. For example, if all your model does is predict the mean of the targets, its R² value would be 0. And if your model perfectly predicts a range of numbers it's R² value would be 1.
+
+**📏 Mean Absolute Error (MAE)** - The average of the absolute differences between predictions and actual values. It gives you an idea of how wrong your predictions were.
+
+**📐 Mean Squared Error (MSE)** - The average squared differences between predictions and actual values. Squaring the errors removes negative errors. It also amplifies outliers (samples which have larger errors).
+
+---
+
+### 🤔 Which Regression Metric Should You Use?
+
+**💡 R²** is similar to accuracy. It gives you a quick indication of how well your model might be doing. Generally, the closer your R² value is to 1.0, the better the model. But it doesn't really tell exactly how wrong your model is in terms of how far off each prediction is.
+
+**💡 MAE** gives a better indication of how far off each of your model's predictions are on average.
+
+#### 🏠 Practical Example: House Price Prediction
+
+As for MAE or MSE, because of the way MSE is calculated, squaring the differences between predicted values and actual values, it amplifies larger differences.
+
+| Error Type | When to Use |
+|------------|-------------|
+| **📏 MAE** | When being $10,000 off is **twice as bad** as being $5,000 off (linear penalty) |
+| **📐 MSE** | When being $10,000 off is **more than twice as bad** as being $5,000 off (exponential penalty) |
+
+---
+
+## 📚 Additional Resources
+
+For more resources on evaluating a machine learning model, be sure to check out the following:
+
+- 📖 [Scikit-Learn documentation for metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html) - Quantifying the quality of predictions
+- ✍️ [Beyond Accuracy: Precision and Recall](https://towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c) by Will Koehrsen
+- 💬 [Stack Overflow: MSE and RMSE explained](https://stackoverflow.com/questions/17197492/is-there-a-library-function-for-root-mean-square-error-rmse-in-python)
+
+---
+
+> 💡 **Pro Tip**: Start with simple metrics like accuracy or R², then dive deeper into specialized metrics based on your specific problem and business requirements!
